@@ -1181,7 +1181,7 @@ end
 local function CreateClassColors()
 	local frame = CreatePopup()
 	frame:SetWidth(260)
-	frame:SetHeight(300)
+	frame:SetHeight(350)
 
 	-- Close button.
 	local button = CreateFrame("Button", nil, frame, "UIPanelCloseButton")
@@ -1204,7 +1204,7 @@ local function CreateClassColors()
 	local anchor = checkbox
 	local globalStringSchoolIndex = 0
 	local colorswatch, fontString
-	for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR DEMONHUNTER", "[^%s]+") do
+	for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR DEMONHUNTER EVOKER", "[^%s]+") do
 		colorswatch = MSBTControls.CreateColorswatch(frame)
 		colorswatch:SetPoint("TOPLEFT", anchor, "BOTTOMLEFT", anchor == checkbox and 20 or 0, anchor == checkbox and -10 or -5)
 		colorswatch:SetColorChangedHandler(
@@ -1251,7 +1251,7 @@ local function ShowClassColors(configTable)
 	frame.colorCheckbox:SetChecked(not MSBTProfiles.currentProfile.classColoringDisabled)
 
 	local profileEntry
-	for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR DEMONHUNTER", "[^%s]+") do
+	for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR DEMONHUNTER EVOKER", "[^%s]+") do
 		profileEntry = MSBTProfiles.currentProfile[class]
 		frame[class .. "Colorswatch"]:SetColor(profileEntry.colorR, profileEntry.colorG, profileEntry.colorB)
 		frame[class .. "Checkbox"]:SetChecked(not profileEntry.disabled)
@@ -2359,7 +2359,7 @@ local function CreateClasses()
 	frame.allClassesCheckbox = checkbox
 
 	local anchor = checkbox
-	for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR", "[^ ]+") do
+	for class in string.gmatch("DEATHKNIGHT DRUID HUNTER MAGE MONK PALADIN PRIEST ROGUE SHAMAN WARLOCK WARRIOR DEMONHUNTER EVOKER", "[^ ]+") do
 		checkbox = MSBTControls.CreateCheckbox(frame)
 		checkbox:Configure(24, CLASS_NAMES[class], nil)
 		checkbox:SetPoint("TOPLEFT", anchor, "BOTTOMLEFT", anchor == frame.allClassesCheckbox and 20 or 0, anchor == frame.allClassesCheckbox and -10 or 0)
